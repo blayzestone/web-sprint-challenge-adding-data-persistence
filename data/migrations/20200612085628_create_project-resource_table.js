@@ -2,12 +2,18 @@ exports.up = function (knex) {
   return knex.schema.createTable("project-resource", (tbl) => {
     tbl.increments();
 
-    tbl.integer("project_id").unsigned().notNullable().references("project.id");
+    tbl
+      .integer("project_id")
+      .unsigned()
+      .notNullable()
+      .references("project.id")
+      .onDelete("CASCADE");
     tbl
       .integer("resource_id")
       .unsigned()
       .notNullable()
-      .references("resource.id");
+      .references("resource.id")
+      .onDelete("CASCADE");
   });
 };
 
