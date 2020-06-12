@@ -5,7 +5,7 @@ exports.up = function (knex) {
     tbl.string("name", 128).notNullable();
     tbl.string("desc");
 
-    tbl.boolean("completed");
+    tbl.boolean("completed").defaultTo(false);
   });
 };
 
